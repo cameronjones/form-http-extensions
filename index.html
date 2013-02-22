@@ -3,7 +3,7 @@
 <head>
   <title>HTML Form HTTP Extensions</title>
   <meta charset='utf-8'>
-  <script src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
+  <script src='http://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
   <script class='remove'>
     var respecConfig = {
         specStatus:   "unofficial",
@@ -20,6 +20,8 @@
         editors:  [
             { name: "Cameron Jones", url: "http://www.cmhjones.com/" },
         ],
+
+        overrideCopyright: "<p class='copyright'>This document is licensed under a <a class='subfoot' rel='license' href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero (CC0) Universal Public Domain Declaration</a>",
 
         wg:           "HTML Working Group",
         wgURI:        "http://www.w3.org/html/wg/",
@@ -60,9 +62,9 @@
     capturing user input for interaction with remote web services 
     over the HTTP protocol.</p>
 
-    <p>This specification builds upon the standarization of  XmlHttpRequest 
+    <p>This specification builds upon the standarization of  XMLHttpRequest 
     [[XHR]] by extending the functionality available in the 
-    Javascript interfaces to declerative form attributes and controls.</p>
+    JavaScript interfaces to declerative form attributes and controls.</p>
 
     <p>The sections of this document correlate to the revised sections of 
     HTML5 [[!HTML5]] and identify the complete set of changes over the 
@@ -1118,7 +1120,7 @@
     <h2>Examples</h2>
 
     <section class="informative">
-      <h3>Http PUT Form</h3>
+      <h3>HTTP PUT Form</h3>
 
       <p>This form is used to updated an existing resource with the new 
       content within the entity, but only if the entity has not been modified 
@@ -1146,7 +1148,7 @@
     </section>
 
     <section class="informative">
-      <h3>Http DELETE Form</h3>
+      <h3>HTTP DELETE Form</h3>
 
       <p>This form is used to delete a range of resources:</p>
       <pre class="example">
@@ -1159,7 +1161,7 @@
     </section>
 
     <section class="informative">
-      <h3>Http Authentication Login Form</h3>
+      <h3>HTTP Authentication Login Form</h3>
 
       <p>This form provides the parameters for HTTP authentication from form 
       input controls:</p> 
@@ -1175,7 +1177,7 @@
     </section>
     
     <section class="informative">
-      <h3>Http Authentication Logout Form</h3>
+      <h3>HTTP Authentication Logout Form</h3>
 
       <p>This form sends a logout request to the server which may clear any 
       session cookies, and instructs the user agent to clear the 
@@ -1228,7 +1230,7 @@
       <li>Mike Amundsen</li>
       <li>Dave Kok</li>
       <li>Ian Hickson</li>
-      <li>Anne Van Kesteren</li>
+      <li>Anne van Kesteren</li>
       <li>Ted O'Connor</li>
       <li>Nicholas Shanks</li>
       <li>HTML WG Chairs: Sam Ruby, Paul Cotton &amp; Maciej Stachowiak</li>
