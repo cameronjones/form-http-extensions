@@ -533,6 +533,14 @@
 
                 <ol>
   
+                  <li><p>If  the <var title="">name</var> of the <var title="">entry</var>
+                  does not match the <a href="http://tools.ietf.org/html/rfc2616/#section-4.2">field-name</a> 
+                  production [[!HTTP11]], then skip these substeps.</p></li>
+                  
+                  <li><p>If  the <var title="">value</var> of the <var title="">entry</var>
+                  does not match the <a href="http://tools.ietf.org/html/rfc2616/#section-4.2">field-value</a> 
+                  production [[!HTTP11]], then skip these substeps.</p></li>
+  
                   <li>
   
                     <p>If the <var title="">name</var> of the <var title="">entry</var>
@@ -644,7 +652,7 @@
                   <p><span>Navigate</span><!--DONAV form--> <var
                   title="">target browsing context</var> to <var
                   title="">action</var> using the HTTP method given by <var
-                  title="">method</var> applying any and additional <var title="">
+                  title="">method</var> applying any additional <var title="">
                   request headers</var> and with <var title="">entity body</var>
                   as the entity body, of type <var title="">MIME type</var>. If
                   <var title="">replace</var> is true, then <var title="">target
