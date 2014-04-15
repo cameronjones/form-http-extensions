@@ -11,10 +11,6 @@
 
         edDraftURI:      "http://cameronjones.github.com/form-http-extensions/index.html",
 
-        // if you want to have extra CSS, append them to this list
-        // it is recommended that the respec.css stylesheet be kept
-        extraCSS:       ["http://dev.w3.org/2009/dap/ReSpec.js/css/respec.css"],
-
         // editors, add as many as you like
         // only "name" is required
         editors:  [
@@ -49,8 +45,8 @@
 
   <section id='abstract'>
 
-    <p>This is a revised specification of HTML5 forms extending the abilities 
-    of configuring HTTP requests through HTML markup.</p>
+    <p>This is an addendum to the specification of HTML5 forms extending the 
+		abilities of configuring HTTP requests through HTML markup.</p>
 
   </section>
 
@@ -60,13 +56,23 @@
 
     <p>The use of forms in HTML provide a declerative interface for 
     capturing user input for interaction with remote web services 
-    over the HTTP protocol.</p>
+    over the HTTP protocol. This specification builds upon the standarization of 
+		XMLHttpRequest [[XHR]] by extending the functionality available to configure 
+		HTTP requests in JavaScript interfaces to declerative form attributes and 
+		controls.</p>
 
-    <p>This specification builds upon the standarization of  XMLHttpRequest 
-    [[XHR]] by extending the functionality available in the 
-    JavaScript interfaces to declerative form attributes and controls.</p>
+		<p>The set of changes defined herein remove the restriction on HTTP methods 
+		declared within a form's <code>method</code> attribute allowing both the use 
+		of the common HTTP methods PUT and DELETE while also allowing for the use of 
+		HTTP extension-methods for unstandarized private or experimental use.</p>
 
-    <p>The sections of this document correlate to the revised sections of 
+	  <p>In addition, the new <code>payload</code> submission attribute is 
+		introduced to enable the configuration of any part of the HTTP message 
+		generated through form controls. This allows for new flexibility by 
+		enabling URL queries, HTTP headers and message content to be configured 
+		within a form's input controls.</p>
+
+    <p>The sub-sections of this document correlate to the sections of 
     HTML5 [[!HTML5]] and identify the complete set of changes over the 
     specification with the exception of nominal referential updates.</p>
 
@@ -80,7 +86,7 @@
 
       <p>
         <a href="http://www.w3.org/TR/html5/forms.html#attributes-common-to-form-controls">
-          <dfn>4.10.19 Attributes common to form controls</dfn>
+          <span>4.10.19 Attributes common to form controls</span>
         </a>
       </p>
 
@@ -102,17 +108,17 @@
 
            <li>The keyword <dfn
           title="attr-fs-method-CONNECT-keyword"><code>connect</code></dfn>, 
-          mapping to the state <dfn title="attr-fs-method-GET">CONNECT</dfn>, 
+          mapping to the state <dfn title="attr-fs-method-CONNECT">CONNECT</dfn>, 
           indicating the HTTP CONNECT method.</li>
 
           <li>The keyword <dfn
-          title="attr-fs-method-POST-keyword"><code>trace</code></dfn>, 
-          mapping to the state <dfn title="attr-fs-method-POST">TRACE</dfn>, 
+          title="attr-fs-method-TRACE-keyword"><code>trace</code></dfn>, 
+          mapping to the state <dfn title="attr-fs-method-TRACE">TRACE</dfn>, 
           indicating the HTTP TRACE method.</li>
 
           <li>The keyword <dfn
-          title="attr-fs-method-POST-keyword"><code>track</code></dfn>, 
-          mapping to the state <dfn title="attr-fs-method-POST">TRACK</dfn>, 
+          title="attr-fs-method-TRACK-keyword"><code>track</code></dfn>, 
+          mapping to the state <dfn title="attr-fs-method-TRACK">TRACK</dfn>, 
           indicating the HTTP TRACK method.</li>
 
         </ul>
@@ -164,13 +170,13 @@
 
       <p>
         <a href="http://www.w3.org/TR/html5/forms.html#attributes-common-to-form-controls">
-          <dfn>4.10.19 Attributes common to form controls</dfn>
+          <span>4.10.19 Attributes common to form controls</span>
         </a>
       </p>
 
       <p>
         <a href="#payload-attribute-spec">
-          <strong>&lt;INSERT&gt;</strong> Binding form controls: the <code>payload</code> attribute
+          <strong>&lt;ADDENDUM&gt;</strong> Binding form controls: the <code>payload</code> attribute
         </a>
       </p>
 
@@ -185,17 +191,17 @@
 
           <li>The keyword <dfn
           title="attr-fs-payload-action-keyword"><code>_action</code></dfn>, 
-          mapping to the state <dfn title="attr-fs-payload-ACTION">ACTION</dfn>, 
+          mapping to the state <dfn id="attr-fs-payload-ACTION">ACTION</dfn>, 
           indicating that the value is a member of the form action set.</li>
 
           <li>The keyword <dfn
           title="attr-fs-payload-header-keyword"><code>_header</code></dfn>, 
-          mapping to the state <dfn title="attr-fs-payload-HEADER">HEADER</dfn>, 
+          mapping to the state <dfn id="attr-fs-payload-HEADER">HEADER</dfn>, 
           indicating that the value is a member of the form header set.</li>
 
           <li>The keyword <dfn
           title="attr-fs-payload-body-keyword"><code>_body</code></dfn>,
-          mapping to the state <dfn title="attr-fs-payload-body">BODY</dfn>, 
+          mapping to the state <dfn id="attr-fs-payload-BODY">BODY</dfn>, 
           indicating that the value is a member of the form body set.</li>
 
         </ul>
@@ -209,19 +215,19 @@
           <li>
             <p>If the scheme is <code>http(s)</code> and the <var>method</var> is 
             HEAD, GET, OPTIONS or DELETE then the <code>payload</code> is the 
-            <dfn title="attr-fs-payload-ACTION">ACTION</dfn> state.</p>
+            <a href="#attr-fs-payload-ACTION">ACTION</a> state.</p>
           </li>
 
           <li>
             <p>If the scheme is <code>http(s)</code> and the <var>method</var> is 
             PUT, POST, PATCH or an extension-method then the <code>payload</code> 
-            is the <dfn title="attr-fs-payload-BODY">BODY</dfn> state.</p>
+            is the <a href="#attr-fs-payload-BODY">BODY</a> state.</p>
           </li>
 
           <li>
             <p>For the <code>data</code> and <code>mailto</code> schemes the 
-            missing value default is the <dfn title="attr-fs-payload-BODY">
-            BODY</dfn> state.</p>
+            missing value default is the <a href="#attr-fs-payload-BODY">
+            BODY</a> state.</p>
           </li>
 
         </ul>
@@ -240,7 +246,7 @@
 
       <p>
         <a href="http://www.w3.org/TR/html5/forms.html#attributes-common-to-form-controls">
-          <dfn>4.10.19 Attributes common to form controls</dfn>
+          <span>4.10.19 Attributes common to form controls</span>
         </a>
       </p>
 
@@ -340,7 +346,7 @@
 
       <p>
         <a href="http://www.w3.org/TR/html5/forms.html#form-submission-0">
-          <dfn>4.10.22 Form submission</dfn>
+          <span>4.10.22 Form submission</span>
         </a>
       </p>
 
@@ -443,20 +449,20 @@
           <li><p>Let <var title="">form action set</var> be the result of
           <span>constructing a form payload set</span> for <var
           title="">form</var> in the context of <var
-          title="">submitter</var> with payload type <dfn 
-          title="attr-fs-payload-ACTION">ACTION</dfn>.</p></li>
+          title="">submitter</var> with payload type <a 
+          href="#attr-fs-payload-ACTION">ACTION</a>.</p></li>
 
           <li><p>Let <var title="">form header set</var> be the result of
           <span>constructing a form payload set</span> for <var
           title="">form</var> in the context of <var
-          title="">submitter</var> with payload type <dfn 
-          title="attr-fs-payload-HEADER">HEADER</dfn>.</p></li>
+          title="">submitter</var> with payload type <a 
+          href="#attr-fs-payload-HEADER">HEADER</a>.</p></li>
 
           <li><p>Let <var title="">form body set</var> be the result of
           <span>constructing a form payload set</span> for <var
           title="">form</var> in the context of <var
-          title="">submitter</var> with payload type <dfn 
-          title="attr-fs-payload-BODY">BODY</dfn>.</p></li>
+          title="">submitter</var> with payload type <a 
+          href="#attr-fs-payload-BODY">BODY</a>.</p></li>
 
           <li><p>Let <var title="">enctype</var> be the <var
           title="">submitter</var> element's <span
@@ -713,7 +719,7 @@
 
                 </dd>
 
-                <dt><dfn title="submit-data">Submit <code title="">mailto</code></dfn></dt>
+                <dt><dfn title="submit-mailto">Submit <code title="">mailto</code></dfn></dt>
              
               <dd>
 
@@ -875,8 +881,8 @@
 
                   <li>The <var title="">field</var> element is an <code>input</code> 
                   element whose <code>name</code> attribute value is  
-                  "<dfn title="attr-fe-name-username"><code>_username_</code></dfn>" or
-                  "<dfn title="attr-fe-name-password"><code>_password_</code></dfn>".</li>
+                  "<a href="#attr-fe-name-username"><code>_username_</code></a>" or
+                  "<a href="#attr-fe-name-password"><code>_password_</code></a>".</li>
 
                   <li>The <var title="">field</var> element is an
                   <code>input</code> element whose <code
