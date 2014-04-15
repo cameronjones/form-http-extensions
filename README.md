@@ -1,8 +1,5 @@
-form-http-extensions
-====================
-
 HTML Forms HTTP Extensions
---------------------------
+==========================
 
 This is a addendum to the specification of HTML5 forms extending the abilities of configuring HTTP requests through HTML markup.
 
