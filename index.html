@@ -44,6 +44,10 @@
     <p>This is an addendum to the specification of HTML5 forms extending the 
     abilities of configuring HTTP requests through HTML markup.</p>
 
+    <p>This document has been developed as a result of work contributed in 
+    addressing HTML WG <a href="http://www.w3.org/html/wg/tracker/issues/195">
+    ISSUE-195: Enhance http request generation from forms</a>.</p>
+
   </section>
 
   <section class="informative">
@@ -58,23 +62,25 @@
     [[XHR]] by extending the functionality available to configure HTTP requests 
     in JavaScript interfaces to declerative form attributes and controls.</p>
 
-		<p>The set of changes herein remove the restriction on HTTP methods allowing 
+    <p>The set of changes herein remove the restriction on HTTP methods allowing 
     both the use of the common HTTP methods PUT and DELETE, while also allowing 
     HTTP extension-methods for unstandarized private or experimental use.</p>
 
-	  <p>A new <code>payload</code> submission attribute is introduced to enable 
-    the configuration of the HTTP message through form controls. This allows new 
+    <p>A new <code>payload</code> submission attribute is introduced to enable 
+    the configuration of the HTTP message gerernated in form submit. This allows  
     flexibility in the configuration of URL query parameters, HTTP headers and 
     message data through input controls.</p>
 
-    <p>This specification extends the use of named form attributes for 
-    configuring HTTP Authentication parameters managed by the User Agent. This 
-    introduces the ability for declarative "login" and "logout" forms and 
-    provides an alternative to the use of cookies for session continuation.</p>
+    <p>The use of named form attributes is extended to include HTTP 
+    Authentication parameters synonymous with the XMLHttpRequest 
+    <code>open</code> method arguments which are managed by the User Agent. This 
+    introduces declarative "login" and "logout" forms defined by protocol and 
+    provides an alternative to the use of stateful cookies for HTTP session 
+    continuation.</p>
 
-    <p>The sub-sections of this document correlate to the sections of the HTML5 
-    [[!HTML5]] specification and identify the set of changes with the exception 
-    of nominal referential updates.</p>
+    <p>The sub-sections of this document correlate to the revised sections of 
+    the HTML5 [[!HTML5]] specification and identify the complete set of changes 
+    with the exception of nominal referential updates.</p>
 
   </section>
 
@@ -293,7 +299,7 @@
             character encoding.</p>
           </dd>
 
-          <dt><dfn title="attr-fe-name-username"><code>_username_</code></dfn></dt>
+          <dt><dfn id="attr-fe-name-username"><code>_username_</code></dfn></dt>
           <dd>
             <p>This value, if used as the name of a <span
             title="attr-input-type-text">Text</span> or <span
@@ -303,7 +309,7 @@
             contain an <code>Authorization</code> request header.</p>
           </dd>
 
-          <dt><dfn title="attr-fe-name-password"><code>_password_</code></dfn></dt>
+          <dt><dfn id="attr-fe-name-password"><code>_password_</code></dfn></dt>
           <dd>
             <p>This value, if used as the name of a <span
             title="attr-input-type-password">Password</span> control, is used as 
@@ -312,7 +318,7 @@
             contain an <code>Authorization</code> request header.</p>
           </dd>
 
-          <dt><dfn title="attr-fe-name-logout"><code>_logout_</code></dfn></dt>
+          <dt><dfn id="attr-fe-name-logout"><code>_logout_</code></dfn></dt>
           <dd>
             <p>This value, if used as the name of a <span
             title="attr-input-type-hidden">Hidden</span> control, causes a User 
@@ -420,7 +426,7 @@
             <p class="note">This step is a <span>willful violation</span> of
             RFC 3986, which would require base URL processing here. This
             violation is motivated by a desire for compatibility with legacy
-            content. <a href="#refsRFC3986">[RFC3986]</a></p>
+            content. [[!RFC3986]]</p>
 
             <!-- Don't ask me why. But that's what IE does. It even treats
             action="" differently from action=" " or action="#" (the latter
@@ -695,8 +701,7 @@
                   %-escape all the U+0025 PERCENT SIGN characters in the resulting
                   string and replace the first occurrence of "<code
                   title="">%%%%</code>" in <var title="">action</var> with the
-                  resulting double-escaped string. <a
-                  href="#refsRFC3986">[RFC3986]</a></p>
+                  resulting double-escaped string. [[!RFC3986]]</p>
 
                   <p>Otherwise, if <var title="">action</var> contains the string
                   "<code title="">%%</code>" (two U+0025 PERCENT SIGN characters
@@ -706,8 +711,7 @@
                   Generic Syntax, and then, treating the result as a US-ASCII
                   string, replace the first occurrence of "<code
                   title="">%%</code>" in <var title="">action</var> with the
-                  resulting escaped string. <a
-                  href="#refsRFC3986">[RFC3986]</a></p>
+                  resulting escaped string. [[!RFC3986]]</p>
 
                   <p><span>Navigate</span><!--DONAV form--> <var title="">target
                   browsing context</var> to the potentially modified <var
@@ -766,7 +770,7 @@
                 form encoding algorithm</span> and then %-escaping all the bytes
                 in the resulting byte string that, when interpreted as US-ASCII,
                 do not match the <code title="">unreserved</code> production in
-                the URI Generic Syntax. <a href="#refsRFC3986">[RFC3986]</a></p>
+                the URI Generic Syntax. [[!RFC3986]]</p>
     
                 <p>If <var title="">destination</var> does not contain a U+003F
                 QUESTION MARK character (?), append a single U+003F QUESTION
@@ -881,8 +885,8 @@
 
                   <li>The <var title="">field</var> element is an <code>input</code> 
                   element whose <code>name</code> attribute value is  
-                  "<a href="#attr-fe-name-username"><code>_username_</code></a>" or
-                  "<a href="#attr-fe-name-password"><code>_password_</code></a>".</li>
+                  "<code title="attr-fe-name-username">_username_</code>" or
+                  "<code title="attr-fe-name-password">_password_</code>".</li>
 
                   <li>The <var title="">field</var> element is an
                   <code>input</code> element whose <code
