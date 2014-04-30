@@ -1181,16 +1181,24 @@
     <section class="informative">
       <h3>HTTP Authentication Login Form</h3>
 
-      <p>This form provides the parameters for HTTP authentication from form 
-      input controls:</p> 
+      <p>This HTTP response includes a form which provides the parameters for 
+      HTTP authentication from input controls:</p> 
       <pre class="example">
-          &lt;form action="http://www.example.com/login" method="POST"&gt;
-              &lt;label for="_username_"&gt;Username&lt;/label&gt;
-              &lt;input name="_username_" type="text"/&gt;
-              &lt;label for="_password_"&gt;Password&lt;/label&gt;
-              &lt;input name="_password_" type="password"/&gt;
-              &lt;button type="submit"&gt;Login&lt;/button&gt;
-          &lt;/form&gt;
+          HTTP/1.1 200 OK
+          Content-Type: text/html
+          WWW-Authenticate: BASIC realm=MyRealm
+
+          &lt;html&gt;
+            &lt;body&gt;
+              &lt;form action="http://www.example.com/login" method="POST"&gt;
+                &lt;label for="_username_"&gt;Username&lt;/label&gt;
+                &lt;input name="_username_" type="text"/&gt;
+                &lt;label for="_password_"&gt;Password&lt;/label&gt;
+                &lt;input name="_password_" type="password"/&gt;
+                &lt;button type="submit"&gt;Login&lt;/button&gt;
+              &lt;/form&gt;
+            &lt;/body&gt;
+          &lt;/html&gt;
       </pre>
     </section>
     
@@ -1201,10 +1209,10 @@
       session cookies, and instructs the user agent to clear the 
       authentication cache:</p>
       <pre class="example">
-          &lt;form action="http://www.example.com/logout" method="POST"&gt;
-              &lt;input name="_logout_" type="hidden"/&gt;
-              &lt;button type="submit"&gt;Logout&lt;/button&gt;
-          &lt;/form&gt;
+        &lt;form action="http://www.example.com/logout" method="POST"&gt;
+          &lt;input name="_logout_" type="hidden"/&gt;
+          &lt;button type="submit"&gt;Logout&lt;/button&gt;
+        &lt;/form&gt;
       </pre>
     </section>
 
