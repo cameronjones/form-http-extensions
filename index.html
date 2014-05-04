@@ -1172,7 +1172,7 @@
       <pre class="example">
           &lt;form action="http://www.example.com/logs" method="DELETE"&gt;
               &lt;label for="since"&gt;Since&lt;/label&gt;
-              &lt;input name="since" type="datetime"/&gt;
+              &lt;input name="since" id="since" type="datetime"/&gt;
               &lt;button type="submit"&gt;Delete&lt;/button&gt;
           &lt;/form&gt;
       </pre>
@@ -1192,9 +1192,9 @@
             &lt;body&gt;
               &lt;form action="http://www.example.com/login" method="POST"&gt;
                 &lt;label for="_username_"&gt;Username&lt;/label&gt;
-                &lt;input name="_username_" type="text"/&gt;
+                &lt;input id="_username_" name="_username_" type="text"/&gt;
                 &lt;label for="_password_"&gt;Password&lt;/label&gt;
-                &lt;input name="_password_" type="password"/&gt;
+                &lt;input id="_password_" name="_password_" type="password"/&gt;
                 &lt;button type="submit"&gt;Login&lt;/button&gt;
               &lt;/form&gt;
             &lt;/body&gt;
@@ -1224,16 +1224,16 @@
       <pre class="example">
           &lt;form action="mailto:"&gt;
               &lt;label for="to"&gt;To&lt;/label&gt;
-              &lt;input name="to" type="email" payload="_action"/&gt;
+              &lt;input id="to" name="to" type="email" payload="_action"/&gt;
 
               &lt;label for="cc"&gt;Cc&lt;/label&gt;
-              &lt;input name="cc" type="email" payload="_header"/&gt;
+              &lt;input id="cc" name="cc" type="email" payload="_header"/&gt;
 
               &lt;label for="bcc"&gt;Bcc&lt;/label&gt;
-              &lt;input name="bcc" type="email" payload="_header"/&gt;
+              &lt;input id="bcc" name="bcc" type="email" payload="_header"/&gt;
 
               &lt;label for="subject"&gt;Subject&lt;/label&gt;
-              &lt;input name="subject" type="text" payload="_header"/&gt;
+              &lt;input id="subject" name="subject" type="text" payload="_header"/&gt;
 
               &lt;label&gt;Content&lt;/label&gt;
               &lt;textarea size="50"/&gt;
